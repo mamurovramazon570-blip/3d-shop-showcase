@@ -1,476 +1,397 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GITHUB x RAMAZON | 3D Shop</title>
-    <meta
-      name="description"
-      content="Modern 3D shop landing page with black, white, and blue color palette."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <div class="page-shell">
-      <header class="site-header">
-        <nav class="nav container">
-          <div class="brand" aria-label="GITHUB RAMAZON brand">
-            <span class="brand-mark">G</span>
-            <span class="brand-text">GITHUB</span>
-            <span class="brand-separator">×</span>
-            <span class="brand-text">RAMAZON</span>
-          </div>
+<!doctype html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#050b14" />
+  <meta name="description" content="GITHUB x RAMAZON — premium 3D technology shop." />
+  <title>GITHUB × RAMAZON — 3D Technology Shop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="cursor-glow"></div>
+  <div class="announcement"><span>●</span> Yangi kolleksiya: AURORA X1 endi sotuvda <a href="#products">Ko‘rish →</a></div>
 
-          <button class="nav-toggle" aria-label="Open menu">
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
+  <header class="site-header" id="top">
+    <nav class="nav container">
+      <a class="brand" href="#top" aria-label="Bosh sahifa">
+        <b class="brand-mark">G</b>
+        <span>GITHUB</span>
+        <i>×</i>
+        <span>RAMAZON</span>
+        </a>
 
-          <div class="nav-menu">
-            <a href="#home">Asosiy</a>
-            <a href="#catalog">Catalog</a>
-            <a href="#about">Biz haqimizda</a>
-            <a href="#team">Jamoa</a>
-            <a href="#contact">Aloqa</a>
-          </div>
+      <button class="nav-toggle" aria-label="Menyuni ochish" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
 
-          <button class="nav-btn">Buyurtma berish</button>
-        </nav>
-      </header>
+      <div class="nav-menu">
+        <a href="#top">Asosiy</a>
+        <a href="#about">About us</a>
+        <a href="#products">Shop</a>
+        <a href="#technology">Technology</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Aloqa</a>
+      </div>
 
-      <main id="home">
-        <section class="hero container">
-          <div class="hero-copy">
-            <p class="eyebrow">3D SHOP EXPERIENCE</p>
-            <h1>Modern 3D store for new generation.</h1>
-            <p class="subtext">
-              Yangi texnologiya, maksimal uslub va zamonaviy shopping tajribasi.
-              Oq, qora va ko‘k ranglar bilan yaratilgan futuristik dizayn.
-            </p>
+      <div class="nav-actions">
+        <button class="icon-btn" data-open="searchModal" aria-label="Qidirish">⌕</button>
+        <button class="cart-btn" data-open="cartModal">Cart <b class="cart-count">0</b></button>
+      </div>
+    </nav>
+  </header>
 
-            <div class="hero-actions">
-              <a href="#catalog" class="primary-btn">Katalogni ko‘rish</a>
-              <button class="ghost-btn modal-btn" data-target="quickViewModal">
-                Tezkor ko‘rish
-              </button>
-            </div>
+  <main>
+    <section class="hero container reveal" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow">NEXT GENERATION COMMERCE / 001</p>
+        <h1>Buy less.<br /><em>Experience</em> more.</h1>
+        <p class="lead">Texnologiya, dizayn va 3D tajribani bitta premium shopda jamladik. Sizga kerakli mahsulotni tanlang va kelajakni bugun his qiling.</p>
 
-            <ul class="hero-stats">
-              <li>
-                <strong>15K+</strong>
-                <span>Mijozlar</span>
-              </li>
-              <li>
-                <strong>350+</strong>
-                <span>Mahsulotlar</span>
-              </li>
-              <li>
-                <strong>4.9/5</strong>
-                <span>Reyting</span>
-              </li>
-            </ul>
-          </div>
-
-          <div class="hero-visual" aria-label="3D product showcase">
-            <div class="orb orb-one"></div>
-            <div class="orb orb-two"></div>
-            <div class="device-card tilt-card">
-              <div class="card-top">
-                <span class="chip">NEW DROP</span>
-                <span class="dot-group">
-                  <i></i>
-                  <i></i>
-                  <i></i>
-                </span>
-              </div>
-
-              <div class="device-body">
-                <div class="device-shape">
-                  <div class="headphones"></div>
-                  <div class="speaker speaker-left"></div>
-                  <div class="speaker speaker-right"></div>
-                </div>
-              </div>
-
-              <div class="card-bottom">
-                <div>
-                  <p class="small-label">AURORA X1</p>
-                  <h3>$899</h3>
-                </div>
-                <button class="mini-btn modal-btn" data-target="quickViewModal">
-                  Buy now
-                </button>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="feature-strip container" aria-label="Key features">
-          <div class="feature-item">
-            <span class="feature-mark">01</span>
-            <p>Ultra modern 3D design</p>
-          </div>
-          <div class="feature-item">
-            <span class="feature-mark">02</span>
-            <p>Premium quality products</p>
-          </div>
-          <div class="feature-item">
-            <span class="feature-mark">03</span>
-            <p>Fast worldwide delivery</p>
-          </div>
-        </section>
-
-        <section id="catalog" class="catalog container">
-          <div class="section-heading">
-            <p class="eyebrow">FEATURED COLLECTION</p>
-            <h2>3D Shop essentials</h2>
-          </div>
-
-          <div class="product-grid">
-            <article class="product-card tilt-card">
-              <div class="product-image image-one">
-                <span class="badge">TOP</span>
-              </div>
-              <div class="product-info">
-                <div class="info-row">
-                  <h3>SkyHead Pro</h3>
-                  <span>$429</span>
-                </div>
-                <p>Immersive audio and premium comfort.</p>
-                <button class="product-btn modal-btn" data-target="quickViewModal">Quick view</button>
-              </div>
-            </article>
-
-            <article class="product-card tilt-card">
-              <div class="product-image image-two">
-                <span class="badge alt">NEW</span>
-              </div>
-              <div class="product-info">
-                <div class="info-row">
-                  <h3>Nova Speaker</h3>
-                  <span>$299</span>
-                </div>
-                <p>Deep bass and crystal-clear sound.</p>
-                <button class="product-btn modal-btn" data-target="quickViewModal">Quick view</button>
-              </div>
-            </article>
-
-            <article class="product-card tilt-card">
-              <div class="product-image image-three">
-                <span class="badge">HOT</span>
-              </div>
-              <div class="product-info">
-                <div class="info-row">
-                  <h3>Pulse Watch</h3>
-                  <span>$549</span>
-                </div>
-                <p>Smart elegance with precision tracking.</p>
-                <button class="product-btn modal-btn" data-target="quickViewModal">Quick view</button>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section id="about" class="about container">
-          <div class="about-visual">
-            <div class="glass-panel">
-              <div class="panel-3d">
-                <span class="yolo">LIVE</span>
-                <div class="mini-product"></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="about-copy">
-            <p class="eyebrow">ABOUT US</p>
-            <h2>We build product experiences that feel premium.</h2>
-            <p>
-              Biz zamonaviy dizayn, texnologik mahsulotlar va foydalanuvchi uchun
-              qulay shopping muhiti yaratamiz. Har bir detal — brand tajribasining
-              bir qismi.
-            </p>
-
-            <div class="about-points">
-              <div>
-                <strong>99.9%</strong>
-                <span>Customer satisfaction</span>
-              </div>
-              <div>
-                <strong>24h</strong>
-                <span>Fast support</span>
-              </div>
-              <div>
-                <strong>3D</strong>
-                <span>Interactive shopping</span>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="team" class="team container">
-          <div class="section-heading">
-            <p class="eyebrow">OUR TEAM</p>
-            <h2>Creators behind the experience</h2>
-          </div>
-
-          <div class="team-grid">
-            <div class="member-card">
-              <div class="avatar avatar-one"></div>
-              <h3>GITHUB</h3>
-              <p>Brand design and digital strategy.</p>
-            </div>
-            <div class="member-card highlight">
-              <div class="avatar avatar-two"></div>
-              <h3>RAMAZON</h3>
-              <p>Product vision and 3D experiences.</p>
-            </div>
-            <div class="member-card">
-              <div class="avatar avatar-three"></div>
-              <h3>UX STUDIO</h3>
-              <p>Modern UI for high conversion.</p>
-            </div>
-          </div>
-        </section>
-
-        <section class="carousel-section container">
-          <div class="section-heading">
-            <p class="eyebrow">SHOP HIGHLIGHTS</p>
-            <h2>Trending now</h2>
-          </div>
-
-          <div class="carousel" aria-label="Product slider">
-            <button class="carousel-btn prev" aria-label="Previous slide">←</button>
-
-            <div class="carousel-track">
-              <article class="slide active">
-                <div class="slide-visual visual-one"></div>
-                <div class="slide-copy">
-                  <h3>Wave Studio</h3>
-                  <p>Futuristic sound with premium wireless comfort.</p>
-                  <span>$699</span>
-                </div>
-              </article>
-
-              <article class="slide">
-                <div class="slide-visual visual-two"></div>
-                <div class="slide-copy">
-                  <h3>Orbit Lens</h3>
-                  <p>Smart visual experience for daily lifestyle.</p>
-                  <span>$879</span>
-                </div>
-              </article>
-
-              <article class="slide">
-                <div class="slide-visual visual-three"></div>
-                <div class="slide-copy">
-                  <h3>Zen Arc</h3>
-                  <p>Minimal design, maximum impact, elegant performance.</p>
-                  <span>$459</span>
-                </div>
-              </article>
-            </div>
-
-            <button class="carousel-btn next" aria-label="Next slide">→</button>
-          </div>
-        </section>
-      </main>
-
-      <footer id="contact" class="site-footer">
-        <div class="container footer-inner">
-          <div>
-            <div class="brand footer-brand">
-              <span class="brand-mark">G</span>
-              <span class="brand-text">GITHUB</span>
-              <span class="brand-separator">×</span>
-              <span class="brand-text">RAMAZON</span>
-            </div>
-            <p>3D e-commerce experiences designed for the future.</p>
-          </div>
-
-          <div class="footer-links">
-            <a href="#home">Home</a>
-            <a href="#catalog">Catalog</a>
-            <a href="#about">About</a>
-            <a href="#team">Team</a>
-          </div>
+        <div class="hero-actions">
+          <a class="primary-btn magnetic" href="#products">Katalogni ko‘rish <span>↗</span></a>
+          <button class="ghost-btn magnetic" data-open="storyModal">Bizning hikoya <span>▶</span></button>
         </div>
-      </footer>
-    </div>
 
-    <div id="quickViewModal" class="modal" aria-hidden="true">
-      <div class="modal-backdrop" data-close="true"></div>
-      <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-        <button class="close-modal" aria-label="Close modal">×</button>
-        <div class="modal-visual"></div>
-        <div class="modal-content">
-          <p class="eyebrow">LIMITED EDITION</p>
-          <h3 id="modalTitle">AURORA X1</h3>
-          <p>
-            Premium 3D audio system with deep immersion, wireless connection,
-            and modern industrial design.
-          </p>
-          <div class="modal-meta">
-            <span>$899</span>
-            <button class="primary-btn">Add to cart</button>
-          </div>
+        <div class="hero-metrics">
+          <div><strong>15K+</strong><small>happy customers</small></div>
+          <div><strong>4.9</strong><small>average rating</small></div>
+          <div><strong>24/7</strong><small>premium support</small></div>
         </div>
       </div>
+
+      <div class="hero-stage">
+        <div class="stage-grid"></div>
+        <div class="orbit orbit-a"></div>
+        <div class="orbit orbit-b"></div>
+        <div class="hero-object spin-slow">
+          <div class="object-core"><span>R</span></div>
+          <div class="object-ring"></div>
+        </div>
+        <span class="stage-label label-one">AURORA / 001</span>
+        <span class="stage-label label-two">3D INTERACTIVE</span>
+      </div>
+    </section>
+
+    <section class="marquee">
+      <div class="marquee-track">
+        <span>DESIGNED FOR TOMORROW ✦ BUILT FOR TODAY ✦</span>
+        <span>DESIGNED FOR TOMORROW ✦ BUILT FOR TODAY ✦</span>
+      </div>
+    </section>
+
+    <section class="category-section container reveal" id="categories">
+      <div class="section-top">
+        <div>
+          <p class="eyebrow">01 / DISCOVER</p>
+          <h2>Shop by <em>dimension</em></h2>
+        </div>
+        <button class="text-btn" data-open="categoryModal">Barcha kategoriyalar ↗</button>
+      </div>
+
+      <div class="category-grid">
+        <button class="category-card category-a" data-category="Audio"><span>01</span><h3>Audio<br /><em>space</em></h3><b>12 products ↗</b></button>
+        <button class="category-card category-b" data-category="Wearables"><span>02</span><h3>Wearable<br /><em>future</em></h3><b>08 products ↗</b></button>
+        <button class="category-card category-c" data-category="Home tech"><span>03</span><h3>Home<br /><em>system</em></h3><b>16 products ↗</b></button>
+        <button class="category-card category-d" data-category="Creator tools"><span>04</span><h3>Creator<br /><em>kit</em></h3><b>09 products ↗</b></button>
+      </div>
+    </section>
+
+    <section class="about container reveal" id="about">
+      <div class="about-art">
+        <div class="about-cube"><span>ABOUT<br />US</span></div>
+        <div class="floating-tag">EST. 2024</div>
+      </div>
+
+      <div class="about-copy">
+        <p class="eyebrow">02 / ABOUT US</p>
+        <h2>Har bir detalda<br /><em>katta g‘oya.</em></h2>
+        <p>GITHUB × RAMAZON — shunchaki do‘kon emas. Bu texnologiyani tushunadigan, dizaynni his qiladigan va sifatni qadrlaydigan insonlar uchun yaratilgan digital universe.</p>
+        <p>Biz mustaqil creatorlar, innovatorlar va zamonaviy hayot tarzini tanlaydiganlar bilan birga rivojlanamiz.</p>
+        <button class="line-btn" data-open="storyModal">Biz haqimizda batafsil <span>↗</span></button>
+      </div>
+    </section>
+
+    <section class="products container reveal" id="products">
+      <div class="section-top">
+        <div>
+          <p class="eyebrow">03 / CURATED SHOP</p>
+          <h2>Selected <em>objects</em></h2>
+        </div>
+        <div class="filter-row">
+          <button class="filter active" data-filter="all">Barchasi</button>
+          <button class="filter" data-filter="audio">Audio</button>
+          <button class="filter" data-filter="wearable">Wearable</button>
+          <button class="filter" data-filter="home">Home</button>
+        </div>
+      </div>
+
+      <div class="product-grid product-grid-large">
+        <article class="shop-card" data-type="audio" data-name="Aurora X1" data-price="899">
+          <div class="shop-image product-aurora"><span class="product-number">001</span><button class="quick-view" data-product="Aurora X1">Quick view ↗</button></div>
+          <div class="shop-info"><div><small>AUDIO / PREMIUM</small><h3>Aurora X1</h3></div><strong>$899</strong></div>
+          <p>Spatial sound, clean form and all-day comfort.</p>
+          <button class="add-btn" data-add="Aurora X1" data-price="899">Add to bag <span>+</span></button>
+        </article>
+
+        <article class="shop-card" data-type="wearable" data-name="Pulse One" data-price="549">
+          <div class="shop-image product-pulse"><span class="product-number">002</span><button class="quick-view" data-product="Pulse One">Quick view ↗</button></div>
+          <div class="shop-info"><div><small>WEARABLE / SMART</small><h3>Pulse One</h3></div><strong>$549</strong></div>
+          <p>Minimal interface. Maximum awareness. Made for motion.</p>
+          <button class="add-btn" data-add="Pulse One" data-price="549">Add to bag <span>+</span></button>
+        </article>
+
+        <article class="shop-card" data-type="home" data-name="Nova Hub" data-price="299">
+          <div class="shop-image product-nova"><span class="product-number">003</span><button class="quick-view" data-product="Nova Hub">Quick view ↗</button></div>
+          <div class="shop-info"><div><small>HOME / CONNECTED</small><h3>Nova Hub</h3></div><strong>$299</strong></div>
+          <p>One intelligent centre for your personal space.</p>
+          <button class="add-btn" data-add="Nova Hub" data-price="299">Add to bag <span>+</span></button>
+        </article>
+
+        <article class="shop-card" data-type="audio" data-name="Wave Mini" data-price="199">
+          <div class="shop-image product-wave"><span class="product-number">004</span><button class="quick-view" data-product="Wave Mini">Quick view ↗</button></div>
+          <div class="shop-info"><div><small>AUDIO / COMPACT</small><h3>Wave Mini</h3></div><strong>$199</strong></div>
+          <p>Small speaker. Wide sound. Made for every room.</p>
+          <button class="add-btn" data-add="Wave Mini" data-price="199">Add to bag <span>+</span></button>
+        </article>
+      </div>
+    </section>
+
+    <section class="technology container reveal" id="technology">
+      <div class="tech-copy">
+        <p class="eyebrow">04 / TECHNOLOGY</p>
+        <h2>Real objects.<br /><em>Unreal feeling.</em></h2>
+        <p>Har bir mahsulotimizda material, yorug‘lik, ovoz va harakat muvozanatini sinchiklab tanlaymiz. Natija — ko‘rishdan ko‘ra his qilish kuchliroq bo‘lgan tajriba.</p>
+
+        <div class="tech-list">
+          <div><b>01</b><span><strong>Spatial intelligence</strong><small>Har bir signal toza va aniq.</small></span></div>
+          <div><b>02</b><span><strong>Human-centered design</strong><small>Texnologiya sizga moslashadi.</small></span></div>
+          <div><b>03</b><span><strong>Built to last</strong><small>Bugun va ertaga bir xil sifat.</small></span></div>
+        </div>
+      </div>
+
+      <div class="tech-visual">
+        <div class="rotating-cube">
+          <i></i><i></i><i></i><i></i><i></i><i></i>
+        </div>
+        <span>ROTATE / EXPLORE</span>
+      </div>
+    </section>
+
+    <section class="benefits reveal">
+      <div class="container benefit-grid">
+        <div><span>✦</span><h3>Free delivery</h3><p>$100 dan yuqori buyurtmalarga butun dunyo bo‘ylab bepul yetkazish.</p></div>
+        <div><span>◈</span><h3>Easy returns</h3><p>30 kun ichida muammosiz almashtirish va qaytarish kafolati.</p></div>
+        <div><span>◎</span><h3>Human support</h3><p>Har kuni tezkor va mehribon jamoamiz siz bilan.</p></div>
+        <div><span>∞</span><h3>Secure payment</h3><p>To‘lovlaringiz zamonaviy himoya bilan xavfsiz saqlanadi.</p></div>
+      </div>
+    </section>
+
+    <section class="showcase container reveal" id="showcase">
+      <div class="showcase-title">
+        <p class="eyebrow">05 / 3D SHOWCASE</p>
+        <h2>Touch the<br /><em>future.</em></h2>
+        <button class="primary-btn" data-open="demoModal">3D demo ochish ↗</button>
+      </div>
+
+      <div class="showcase-room">
+        <div class="room-floor"></div>
+        <div class="room-object"></div>
+        <div class="room-light"></div>
+        <span>INTERACTIVE OBJECT / 360°</span>
+      </div>
+    </section>
+
+    <section class="timeline container reveal" id="process">
+      <div class="section-top">
+        <div>
+          <p class="eyebrow">06 / OUR PROCESS</p>
+          <h2>From idea to <em>impact.</em></h2>
+        </div>
+      </div>
+
+      <div class="timeline-grid">
+        <div><b>01</b><h3>Imagine</h3><p>G‘oyani topamiz, savollar beramiz va yangi yo‘lni chizamiz.</p></div>
+        <div><b>02</b><h3>Shape</h3><p>Material, interfeys va funksiyani bitta tizimga aylantiramiz.</p></div>
+        <div><b>03</b><h3>Launch</h3><p>Tayyor mahsulotni sizga tez, xavfsiz va chiroyli yetkazamiz.</p></div>
+      </div>
+    </section>
+
+    <section class="reviews container reveal" id="reviews">
+      <div class="section-top">
+        <div>
+          <p class="eyebrow">07 / COMMUNITY VOICE</p>
+          <h2>Loved by <em>curious minds.</em></h2>
+        </div>
+        <div class="review-controls">
+          <button class="carousel-btn prev-review">←</button>
+          <button class="carousel-btn next-review">→</button>
+        </div>
+      </div>
+
+      <div class="review-track">
+        <article class="review active">
+          <div class="stars">★★★★★</div>
+          <blockquote>“Bu oddiy shopping emas. Mahsulot qo‘limga kelishidan oldin ham uni his qildim.”</blockquote>
+          <footer><span class="review-avatar">A</span><span><b>Aziza Karimova</b><small>Creative director / Tashkent</small></span></footer>
+        </article>
+
+        <article class="review">
+          <div class="stars">★★★★★</div>
+          <blockquote>“Aurora X1 ovozi va saytning o‘zi bir xil premium hissiyot beradi.”</blockquote>
+          <footer><span class="review-avatar">M</span><span><b>Malik Abdullaev</b><small>Founder / Samarkand</small></span></footer>
+        </article>
+
+        <article class="review">
+          <div class="stars">★★★★★</div>
+          <blockquote>“Minimal, tez va juda chiroyli. Har bir hover ham o‘ylangan.”</blockquote>
+          <footer><span class="review-avatar">S</span><span><b>Sabina R.</b><small>Designer / London</small></span></footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="faq container reveal" id="faq">
+      <div>
+        <p class="eyebrow">08 / FAQ</p>
+        <h2>Sizda savol,<br /><em>bizda javob.</em></h2>
+      </div>
+
+      <div class="faq-list">
+        <details open>
+          <summary>Yetkazib berish qancha vaqt oladi?<span>+</span></summary>
+          <p>O‘zbekiston bo‘ylab 1–3 ish kuni, xalqaro buyurtmalar 5–10 ish kunida yetkaziladi.</p>
+        </details>
+        <details>
+          <summary>Mahsulotni qaytarish mumkinmi?<span>+</span></summary>
+          <p>Ha, foydalanilmagan mahsulotni 30 kun ichida qaytarishingiz mumkin.</p>
+        </details>
+        <details>
+          <summary>Mahsulotlar kafolatlimi?<span>+</span></summary>
+          <p>Barcha tech mahsulotlar kamida 12 oylik rasmiy kafolat bilan keladi.</p>
+        </details>
+        <details>
+          <summary>Qaysi to‘lovlar qabul qilinadi?<span>+</span></summary>
+          <p>Visa, Mastercard, Uzcard, Humo va xavfsiz onlayn to‘lovlarni qabul qilamiz.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="newsletter reveal">
+      <div class="container newsletter-inner">
+        <div>
+          <p class="eyebrow">09 / STAY CURIOUS</p>
+          <h2>Future updates<br /><em>in your inbox.</em></h2>
+        </div>
+
+        <form class="subscribe-form">
+          <input type="email" placeholder="email@example.com" aria-label="Email manzilingiz" required />
+          <button class="primary-btn">Subscribe ↗</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="contact container reveal" id="contact">
+      <div>
+        <p class="eyebrow">10 / SAY HELLO</p>
+        <h2>Let’s make<br /><em>something real.</em></h2>
+      </div>
+
+      <div class="contact-details">
+        <a href="mailto:hello@githubramazon.com">hello@githubramazon.com ↗</a>
+        <a href="https://github.com/mamurovramazon570-blip/github-ramazon-3d-shop-pro" target="_blank" rel="noreferrer">GitHub repository ↗</a>
+        <p>Tashkent, Uzbekistan<br />Mon–Fri / 09:00–18:00</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <a class="brand footer-brand" href="#top">
+          <b class="brand-mark">G</b>
+          <span>GITHUB</span>
+          <i>×</i>
+          <span>RAMAZON</span>
+        </a>
+        <p>Objects for a more interesting tomorrow.</p>
+      </div>
+
+      <div class="footer-nav">
+        <a href="#about">About</a>
+        <a href="#products">Shop</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <small>© 2024–2026 GITHUB × RAMAZON</small>
     </div>
-
-    <script src="script.js"></script>
-  </body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  </footer>
+
+  <div class="modal" id="productModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-box product-modal-box">
+      <button class="modal-close" data-close>×</button>
+      <div class="modal-product-art"></div>
+      <div>
+        <p class="eyebrow">PRODUCT DETAIL</p>
+        <h2 class="modal-title">Aurora X1</h2>
+        <p class="modal-description">Premium spatial audio, hand-finished body and a battery that follows your entire day.</p>
+        <strong class="modal-price">$899</strong>
+        <button class="primary-btn modal-add">Add to bag +</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="cartModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-box cart-box">
+      <button class="modal-close" data-close>×</button>
+      <p class="eyebrow">YOUR BAG</p>
+      <h2>Cart <span class="cart-count">0</span></h2>
+      <div class="cart-items"><p class="empty-cart">Sizning savatingiz hozircha bo‘sh.</p></div>
+      <div class="cart-total"><span>Total</span><strong>$<b>0</b></strong></div>
+      <button class="primary-btn checkout-btn">Checkout ↗</button>
+    </div>
+  </div>
+
+  <div class="modal" id="storyModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-box text-modal">
+      <button class="modal-close" data-close>×</button>
+      <p class="eyebrow">GITHUB × RAMAZON</p>
+      <h2>We create space for better ideas.</h2>
+      <p>Bizning hikoyamiz kichik tajribadan boshlandi: texnologiya chiroyli, tushunarli va insonga yaqin bo‘lishi mumkinligini isbotlash.</p>
+      <p>Bugun biz bu fikrni mahsulotlar, dizayn va har bir interaction orqali davom ettirmoqdamiz.</p>
+      <button class="line-btn" data-close>Yopish <span>×</span></button>
+    </div>
+  </div>
+
+  <div class="modal" id="demoModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-box demo-modal">
+      <button class="modal-close" data-close>×</button>
+      <div class="demo-stage"><div class="demo-orb"></div></div>
+      <h2>360° Aurora demo</h2>
+      <p>Cursorni aylantiring yoki ekranda swipe qiling — mahsulot harakatini ko‘ring.</p>
+    </div>
+  </div>
+
+  <div class="modal" id="searchModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-box search-box">
+      <button class="modal-close" data-close>×</button>
+      <p class="eyebrow">SEARCH</p>
+      <h2>Qidiruv</h2>
+      <input type="text" placeholder="Mahsulot yoki kategoriya qidiring..." />
+      <div class="search-suggestions"><span>Aurora X1</span><span>Pulse One</span><span>Nova Hub</span><span>Wave Mini</span></div>
+    </div>
+  </div>
+
+  <div class="toast" role="status"></div>
+
+  <script src="script.js"></script>
+</body>
+  </html>

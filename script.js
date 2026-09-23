@@ -1,149 +1,149 @@
-const navToggle = document.querySelector('.nav-toggle');
-const navMenu = document.querySelector('.nav-menu');
-const modal = document.getElementById('quickViewModal');
-const modalBackdrop = modal?.querySelector('.modal-backdrop');
-const closeModalBtn = modal?.querySelector('.close-modal');
-const modalButtons = document.querySelectorAll('.modal-btn');
-const tiltCards = document.querySelectorAll('.tilt-card');
-const slides = document.querySelectorAll('.slide');
-const prevBtn = document.querySelector('.carousel-btn.prev');
-const nextBtn = document.querySelector('.carousel-btn.next');
+(() => {
+  const $ = (selector, scope = document) => scope.querySelector(selector);
+  const $$ = (selector, scope = document) => [...scope.querySelectorAll(selector)];
+  const body = document.body;
+  const toast = $('.toast');
+  const cart = [];
 
-let currentSlide = 0;
+  const notify = (message) => {
+    if (!toast) return;
+    toast.textContent = message;
+    toast.classList.add('show');
+    window.clearTimeout(notify.timer);
+    notify.timer = window.setTimeout(() => toast.classList.remove('show'), 2600);
+  };
 
-if (navToggle && navMenu) {
-  navToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('is-open');
+  const syncCart = () => {
+    const total = cart.reduce((sum, item) => sum + item.price, 0);
+    $$('.cart-count').forEach((node) => { node.textContent = cart.length; });
+    const list = $('.cart-items');
+    if (!list) return;
+    list.innerHTML = cart.length
+      ? cart.map((item, index) => `<div class="cart-item"><span>${index + 1}. ${item.name}</span><b>$${item.price}</b></div>`).join('')
+      : '<p class="empty-cart">Sizning savatingiz hozircha bo‘sh.</p>';
+    const totalNode = $('.cart-total strong b');
+    if (totalNode) totalNode.textContent = total;
+  };
+
+  const openModal = (id) => {
+    const modal = document.getElementById(id);
+    if (!modal) return;
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    body.classList.add('modal-open');
+  };
+
+  const closeModal = (modal) => {
+    const target = modal || $('.modal.open');
+    if (!target) return;
+    target.classList.remove('open');
+    target.setAttribute('aria-hidden', 'true');
+    if (!$('.modal.open')) body.classList.remove('modal-open');
+  };
+
+  $$('[data-open]').forEach((button) => button.addEventListener('click', () => openModal(button.dataset.open)));
+  $$('.modal').forEach((modal) => {
+    $$('[data-close]', modal).forEach((button) => button.addEventListener('click', () => closeModal(modal)));
+    $('.modal-close', modal)?.addEventListener('click', () => closeModal(modal));
   });
-}
+  document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeModal(); });
 
-function openModal() {
-  if (!modal) return;
-  modal.classList.add('is-open');
-  modal.setAttribute('aria-hidden', 'false');
-}
+  $$('.add-btn').forEach((button) => button.addEventListener('click', () => {
+    cart.push({ name: button.dataset.add, price: Number(button.dataset.price) });
+    syncCart();
+    notify(`${button.dataset.add} savatga qo‘shildi ✓`);
+  }));
 
-function closeModal() {
-  if (!modal) return;
-  modal.classList.remove('is-open');
-  modal.setAttribute('aria-hidden', 'true');
-}
+  $$('.quick-view').forEach((button) => button.addEventListener('click', (event) => {
+    event.stopPropagation();
+    const card = button.closest('.shop-card');
+    $('.modal-title').textContent = card.dataset.name;
+    $('.modal-price').textContent = `$${card.dataset.price}`;
+    $('.modal-add').onclick = () => {
+      cart.push({ name: card.dataset.name, price: Number(card.dataset.price) });
+      syncCart();
+      closeModal();
+      notify(`${card.dataset.name} savatga qo‘shildi ✓`);
+    };
+    openModal('productModal');
+  }));
 
-modalButtons.forEach((button) => {
-  button.addEventListener('click', () => {
-    openModal();
+  $$('.filter').forEach((filter) => filter.addEventListener('click', () => {
+    $$('.filter').forEach((item) => item.classList.remove('active'));
+    filter.classList.add('active');
+    const value = filter.dataset.filter;
+    $$('.shop-card').forEach((card) => {
+      card.style.display = value === 'all' || card.dataset.type === value ? '' : 'none';
+    });
+  }));
+
+  const navToggle = $('.nav-toggle');
+  navToggle?.addEventListener('click', () => {
+    const menu = $('.nav-menu');
+    const isOpen = menu.classList.toggle('is-open');
+    navToggle.setAttribute('aria-expanded', String(isOpen));
   });
-});
+  $$('.nav-menu a').forEach((link) => link.addEventListener('click', () => $('.nav-menu')?.classList.remove('is-open')));
 
-if (modalBackdrop) {
-  modalBackdrop.addEventListener('click', closeModal);
-}
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: .12 });
+  $$('.reveal').forEach((element) => observer.observe(element));
 
-if (closeModalBtn) {
-  closeModalBtn.addEventListener('click', closeModal);
-}
+  let reviewIndex = 0;
+  const reviews = $$('.review');
+  const showReview = (index) => {
+    reviews.forEach((review, i) => review.classList.toggle('active', i === index));
+  };
+  $('.next-review')?.addEventListener('click', () => {
+    reviewIndex = (reviewIndex + 1) % reviews.length;
+    showReview(reviewIndex);
+  });
+  $('.prev-review')?.addEventListener('click', () => {
+    reviewIndex = (reviewIndex - 1 + reviews.length) % reviews.length;
+    showReview(reviewIndex);
+  });
+  window.setInterval(() => {
+    if (reviews.length) {
+      reviewIndex = (reviewIndex + 1) % reviews.length;
+      showReview(reviewIndex);
+    }
+  }, 7000);
 
-document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape' && modal?.classList.contains('is-open')) {
-    closeModal();
-  }
-});
-
-tiltCards.forEach((card) => {
-  card.addEventListener('pointermove', (event) => {
-    const rect = card.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
-    const rotateY = ((x / rect.width) - 0.5) * 18;
-    const rotateX = (0.5 - (y / rect.height)) * 18;
-
-    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+  $$('.category-card').forEach((card) => {
+    card.addEventListener('click', () => {
+      notify(`${card.dataset.category} kategoriyasi tanlandi`);
+      document.querySelector('#products')?.scrollIntoView({ behavior: 'smooth' });
+    });
   });
 
-  card.addEventListener('pointerleave', () => {
-    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+  $('.subscribe-form')?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    event.currentTarget.reset();
+    notify('Rahmat! Yangiliklar emailingizga yuboriladi ✓');
   });
-});
 
-function renderSlide(index) {
-  slides.forEach((slide, idx) => {
-    slide.classList.toggle('active', idx === index);
+  $('.checkout-btn')?.addEventListener('click', () => {
+    cart.length ? notify('Checkout tez orada ishga tushadi!') : notify('Avval mahsulot tanlang');
   });
-}
 
-function nextSlide() {
-  currentSlide = (currentSlide + 1) % slides.length;
-  renderSlide(currentSlide);
-}
-
-function prevSlide() {
-  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-  renderSlide(currentSlide);
-}
-
-if (prevBtn && nextBtn && slides.length) {
-  prevBtn.addEventListener('click', prevSlide);
-  nextBtn.addEventListener('click', nextSlide);
-
-  setInterval(nextSlide, 6000);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  const glow = $('.cursor-glow');
+  window.addEventListener('pointermove', (event) => {
+    if (glow) {
+      glow.style.left = `${event.clientX}px`;
+      glow.style.top = `${event.clientY}px`;
+    }
+  });
+
+  $$('.magnetic').forEach((element) => {
+    element.addEventListener('pointermove', (event) => {
+      const rect = element.getBoundingClientRect();
+      element.style.transform = `translate(${(event.clientX - rect.left - rect.width / 2) * .12}px, ${(event.clientY - rect.top - rect.height / 2) * .12}px)`;
+    });
+    element.addEventListener('pointerleave', () => { element.style.transform = ''; });
+  });
+
+  syncCart();
+})();
